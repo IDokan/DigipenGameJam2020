@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
-    public int fatigue;
-    public int health;
-    public int intelligence;
-    public int urin;
-    public int hunger;
-    public int stress;
+    // it is going to be up & down, up & down
+    public int intelligence { get; set; } = 100;
+
+    // the value is going to be decrease
+    public int health { get; set; } = 100;
+
+
+    // the values are going to be increse
+    public int fatigue { get; set; } = 100;
+    public int urin { get; set; } = 0;
+    public int hunger { get; set; } = 0;
+    public int stress { get; set; } = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // variables are going to be decreased
-        // Thus, initial value is 100
-        health = 100;
-        intelligence = 100;
-
-        // variables are going to be increased
-        // Thus, initial value is 0
-        fatigue = 0;
-        urin = 0;
-        hunger = 0;
-        stress = 0;
     }
 
     // Update is called once per frame
