@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
+    //Count time for decrease & increase values
+    float timer = 0;
+
     // it is going to be up & down, up & down
     public int intelligence { get; set; } = 100;
 
@@ -17,7 +20,6 @@ public class Status : MonoBehaviour
     public int hunger { get; set; } = 0;
     public int stress { get; set; } = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,31 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if(timer > 300) //use && to check if player is not eating or sleeping
+        {
+            timer = 0;
+            ++fatigue;
+            --health;
+            ++hunger;
+            ++urin;
+        }
+
+        //example code
+        if (health == 0)
+            resetStatus('b');
+    }
+
+    //When level value is made, place iTimer in Update function
+    void resetStatus(char signal)
+    {
+        if (signal == 'a')
+            fatigue = 0;
+        if (signal == 'b')
+            health = 100;
+        if (signal == 'c')
+            hunger = 0;
+        if (signal == 'd')
+            urin = 0;
     }
 }
