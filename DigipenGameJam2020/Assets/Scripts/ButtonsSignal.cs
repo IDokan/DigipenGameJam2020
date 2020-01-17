@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ButtonsSignal : MonoBehaviour
 {
-    public void signalButton(int count)
+    public void signalButton(int counting)
     {
-        Time time = GameObject.FindGameObjectWithTag("Days").GetComponent<Time>();
-        time.dayCount(count);
+        Life_days daysCount = GameObject.FindGameObjectWithTag("Days").GetComponent<Life_days>();
+        daysCount.dayCount(counting);
     }
 }
