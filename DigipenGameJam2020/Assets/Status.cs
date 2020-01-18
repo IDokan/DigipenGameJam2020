@@ -15,7 +15,7 @@ public class Status : MonoBehaviour
 
 
     // the values are going to be increse
-    public int fatigue { get; set; } = 100;
+    public int fatigue { get; set; } = 0;
     public int urin { get; set; } = 0;
     public int hunger { get; set; } = 0;
     public int stress { get; set; } = 0;
@@ -29,7 +29,7 @@ public class Status : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 300) //use && to check if player is not eating or sleeping
+        if(timer > 5) //use && to check if player is not eating or sleeping
         {
             timer = 0;
             ++fatigue;
@@ -43,7 +43,7 @@ public class Status : MonoBehaviour
             resetStatus('b');
     }
 
-    //When level value is made, place iTimer in Update function
+    //helper function
     void resetStatus(char signal)
     {
         if (signal == 'a')
