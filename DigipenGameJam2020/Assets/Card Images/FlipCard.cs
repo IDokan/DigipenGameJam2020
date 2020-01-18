@@ -6,7 +6,7 @@ public class FlipCard : MonoBehaviour
 {
     public int fps = 60;
     public int rotatePerDegreeSecond = 180;
-    public bool isFaceUp = false;
+    public bool isFaceUp { get; set; } = false;
 
     const float FLIP_LIMIT_DEGREE = 180.0f;
 
@@ -25,7 +25,7 @@ public class FlipCard : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         if(isAnimationProcessing)
         {
