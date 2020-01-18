@@ -26,7 +26,7 @@ public class Urin_Updator : MonoBehaviour
     {
         Text representText = GetComponent<Text>();
         Status status = player.GetComponent<Status>();
-        representText.text = (status.stress).ToString();
-        slider.value = status.stress;
+        representText.text = (status.urin).ToString();
+        slider.value = status.urin;
     }
 }

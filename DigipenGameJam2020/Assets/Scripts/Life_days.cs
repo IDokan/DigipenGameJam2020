@@ -67,11 +67,13 @@ public class Life_days : MonoBehaviour
     public void dayCount(int count)
     {
         behavior -= count;
-
+        GameObject.Find("Player").GetComponent<Status>().fatigue += 2;
+        GameObject.Find("Player").GetComponent<Status>().hunger += 3;
 
         if (behavior == 0)
         {
             day++;
+            GameObject.Find("Player").GetComponent<Status>().urin += 6;
             behavior = 5;
         }
 
