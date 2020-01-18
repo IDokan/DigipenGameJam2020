@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class Health_Updator : MonoBehaviour
-{
 
+[System.Serializable]
+public class Urin_Updator : MonoBehaviour
+{
     [SerializeField]
     private GameObject player = null;
     [SerializeField]
@@ -26,7 +26,7 @@ public class Health_Updator : MonoBehaviour
     {
         Text representText = GetComponent<Text>();
         Status status = player.GetComponent<Status>();
-        representText.text = (status.health).ToString();
-        slider.value = status.health;
+        representText.text = (status.urin).ToString();
+        slider.value = status.urin;
     }
 }

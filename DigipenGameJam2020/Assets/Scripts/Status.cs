@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Status : MonoBehaviour
 {
@@ -13,22 +13,19 @@ public class Status : MonoBehaviour
     public Sprite toilet;
     public Sprite cafe;
 
-    // it is going to be up & down, up & down
-    public int intelligence { get; set; } = 100;
-
-    // the value is going to be decrease
-    public int health { get; set; } = 100;
-
     //character sprites
     public Sprite sleeping;
     public Sprite presentation;
     public Sprite standing;
 
+
+    // it is going to be up & down, up & down
+    public int intelligence { get; set; } = 0;
+
     // the values are going to be increse
     public int fatigue { get; set; } = 0;
     public int urin { get; set; } = 0;
     public int hunger { get; set; } = 0;
-    public int stress { get; set; } = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -39,19 +36,15 @@ public class Status : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 5) //use && to check if player is not eating or sleeping
+        if (timer > 5) //use && to check if player is not eating or sleeping
         {
             timer = 0;
             ++fatigue;
-            --health;
             ++hunger;
             ++urin;
         }
 
-        //example code for resetting values
-        if (health == 0)
-            resetStatus('b');
-        if(GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == classroom)
+        if (GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == classroom)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = presentation;
             gameObject.GetComponent<Transform>().position = new Vector3(0.01f, -3.2f, -0.01f);
@@ -71,19 +64,36 @@ public class Status : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = standing;
             gameObject.GetComponent<Transform>().position = new Vector3(1.11f, -0.57f, -0.01f);
         }
+    }
+
+    public void EatSignal(int count)
+    {
+        hunger -= count;
+        fatigue -= 2;
+        urin += count - 2;
+    }
+
+    public void UrinSignal(int count)
+    {
+        urin -= count;
 
     }
 
-    //helper function
-    void resetStatus(char signal)
+    public void RestOrPlaySignal(int count)
     {
-        if (signal == 'a')
-            fatigue = 0;
-        if (signal == 'b')
-            health = 100;
-        if (signal == 'c')
-            hunger = 0;
-        if (signal == 'd')
-            urin = 0;
+        fatigue -= count;
+        intelligence -= 2;
+    }
+
+    public void SleepSignal(int count)
+    {
+        fatigue -= count;
+
+    }
+
+    public void StudySignal(int count)
+    {
+        intelligence += count;
+        fatigue += 3;
     }
 }
