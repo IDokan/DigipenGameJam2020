@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Status : MonoBehaviour
 {
@@ -38,9 +38,10 @@ public class Status : MonoBehaviour
             ++urin;
         }
 
-        //example code
+        //example code for resetting values
         if (health == 0)
             resetStatus('b');
+
     }
 
     //helper function
