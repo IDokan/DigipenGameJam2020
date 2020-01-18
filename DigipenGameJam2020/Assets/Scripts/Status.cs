@@ -39,10 +39,28 @@ public class Status : MonoBehaviour
         if (timer > 5) //use && to check if player is not eating or sleeping
         {
             timer = 0;
-            ++fatigue;
-            ++hunger;
-            ++urin;
+            if(hunger < 100)
+            {
+                ++hunger;
+            }
+            if(fatigue < 100)
+            {
+                ++fatigue;
+            }
+            if(urin < 100)
+            {
+                ++urin;
+            }
         }
+
+        if (urin > 100)
+            urin = 100;
+        if (hunger > 100)
+            hunger = 100;
+        if (fatigue > 100)
+            fatigue = 100;
+        
+
 
         if (GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == classroom)
         {
@@ -71,11 +89,20 @@ public class Status : MonoBehaviour
         hunger -= count;
         fatigue -= 2;
         urin += count - 2;
+        if (urin > 100)
+            urin = 100;
+        if (hunger < 0)
+            hunger = 0;
+        if (fatigue < 0)
+            fatigue = 0;
+            
     }
 
     public void UrinSignal(int count)
     {
         urin -= count;
+        if (urin < 0)
+            urin = 0;
 
     }
 
@@ -83,11 +110,18 @@ public class Status : MonoBehaviour
     {
         fatigue -= count;
         intelligence -= 2;
+
+        if (fatigue < 0)
+            fatigue = 0;
+        if (intelligence < 0)
+            intelligence = 0;
     }
 
     public void SleepSignal(int count)
     {
         fatigue -= count;
+        if (fatigue < 0)
+            fatigue = 0;
 
     }
 
@@ -95,5 +129,11 @@ public class Status : MonoBehaviour
     {
         intelligence += count;
         fatigue += 3;
+
+        if (intelligence > 100)
+            intelligence = 100;
+
+        if (fatigue > 100)
+            fatigue = 100;
     }
 }
