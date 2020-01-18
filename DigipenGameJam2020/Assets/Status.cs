@@ -7,12 +7,22 @@ public class Status : MonoBehaviour
     //Count time for decrease & increase values
     float timer = 0;
 
+    //place sprites
+    public Sprite classroom;
+    public Sprite studio;
+    public Sprite toilet;
+    public Sprite cafe;
+
     // it is going to be up & down, up & down
     public int intelligence { get; set; } = 100;
 
     // the value is going to be decrease
     public int health { get; set; } = 100;
 
+    //character sprites
+    public Sprite sleeping;
+    public Sprite presentation;
+    public Sprite standing;
 
     // the values are going to be increse
     public int fatigue { get; set; } = 0;
@@ -41,6 +51,26 @@ public class Status : MonoBehaviour
         //example code for resetting values
         if (health == 0)
             resetStatus('b');
+        if(GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == classroom)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = presentation;
+            gameObject.GetComponent<Transform>().position = new Vector3(0.01f, -3.2f, -0.01f);
+        }
+        else if (GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == studio)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = sleeping;
+            gameObject.GetComponent<Transform>().position = new Vector3(1.8f, 0.51f, -0.01f);
+        }
+        else if (GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == toilet)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = standing;
+            gameObject.GetComponent<Transform>().position = new Vector3(0.01f, -3.2f, -0.01f);
+        }
+        else if (GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite == cafe)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = standing;
+            gameObject.GetComponent<Transform>().position = new Vector3(1.11f, -0.57f, -0.01f);
+        }
 
     }
 
