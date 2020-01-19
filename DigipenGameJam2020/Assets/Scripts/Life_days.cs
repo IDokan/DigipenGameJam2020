@@ -63,6 +63,23 @@ public class Life_days : MonoBehaviour
         yearTextField = year_valueText.text.Split(':');
         year_valueText.text = yearTextField[0] + ": " + studentYear;
 
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            GameObject.Find("Player").GetComponent<Status>().intelligence = 100;
+            week = whole_Week;
+        }
+        else if(Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            GameObject.Find("Player").GetComponent<Status>().intelligence = 50;
+            week = whole_Week;
+        }
+        else if(Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            day = 1;
+            week = 11;
+            semester = 2;
+            year = 2;
+        }
     }
 
     public void dayCount(int count)
@@ -74,6 +91,11 @@ public class Life_days : MonoBehaviour
         GameObject.Find("Player").GetComponent<Status>().hunger += 3;
 
         if(GameObject.Find("Player").GetComponent<Status>().hunger >= 100)
+        {
+            SceneManager.LoadScene("EndingScene");
+        }
+
+        if (GameObject.Find("Player").GetComponent<Status>().fatigue >= 100)
         {
             SceneManager.LoadScene("EndingScene");
         }

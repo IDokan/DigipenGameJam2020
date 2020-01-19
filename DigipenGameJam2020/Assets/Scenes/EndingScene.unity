@@ -283,9 +283,9 @@ MonoBehaviour:
   Comment_text2: {fileID: 593473619}
   Blowurin: {fileID: 21300000, guid: a186c76527faedb4eb37f68102e3f5cf, type: 3}
   Gwarosa: {fileID: 21300000, guid: 300ec5e5a3553d240b514cecdcecaaa7, type: 3}
-  Starvation: {fileID: 21300000, guid: a186c76527faedb4eb37f68102e3f5cf, type: 3}
-  Fail: {fileID: 21300000, guid: a186c76527faedb4eb37f68102e3f5cf, type: 3}
-  Pass: {fileID: 21300000, guid: a186c76527faedb4eb37f68102e3f5cf, type: 3}
+  Starvation: {fileID: 21300000, guid: b6d17ad2360e4f04abf7a8b5e224411e, type: 3}
+  Fail: {fileID: 21300000, guid: 6e7b8a74fd37bf4499162f8ea435f822, type: 3}
+  Pass: {fileID: 21300000, guid: 798410ba7e25fb84da170acea82d9acb, type: 3}
 --- !u!212 &431724557
 SpriteRenderer:
   m_ObjectHideFlags: 0

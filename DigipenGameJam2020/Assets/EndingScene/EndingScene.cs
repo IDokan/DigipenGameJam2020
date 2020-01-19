@@ -23,37 +23,59 @@ public class EndingScene : MonoBehaviour
 
     void Start()
     {
-        GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
 
+       
         if (GameObject.Find("Player").GetComponent<Status>().urin >= 100)
         {
+            GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
             gameObject.GetComponent<SpriteRenderer>().sprite = Blowurin;
             Comment_text.text = "You were killed by ";
             Comment_text2.text = "a blast of bladder";
         }
         else if (GameObject.Find("Player").GetComponent<Status>().fatigue >= 100)
         {
+            GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
             gameObject.GetComponent<SpriteRenderer>().sprite = Gwarosa;
             Comment_text.text = "Your body is made up";
             Comment_text2.text = "of Red Bull";
         }
         else if (GameObject.Find("Player").GetComponent<Status>().hunger >= 100)
         {
+            GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
             gameObject.GetComponent<SpriteRenderer>().sprite = Starvation;
             Comment_text.text = "You died eating";
             Comment_text2.text = "only knowledge";
         }
         else if (GameObject.Find("Player").GetComponent<Status>().intelligence >= 100)
         {
+            GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
             gameObject.GetComponent<SpriteRenderer>().sprite = Pass;
             Comment_text.text = "Congratulations, ";
             Comment_text2.text = "but don't be conceited";
         }
         else if (GameObject.Find("Player").GetComponent<Status>().intelligence < 100)
         {
+            GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
             gameObject.GetComponent<SpriteRenderer>().sprite = Fail;
             Comment_text.text = "Hey bro, ";
             Comment_text2.text = "see you in a year";
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SceneManager.LoadScene("TestScene");
+            GameObject.Find("Player").GetComponent<Status>().fatigue = 0;
+            GameObject.Find("Player").GetComponent<Status>().urin = 0;
+            GameObject.Find("Player").GetComponent<Status>().hunger = 0;
+            GameObject.Find("Player").GetComponent<Status>().intelligence = 0;
+
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            QuitScene();
         }
     }
 

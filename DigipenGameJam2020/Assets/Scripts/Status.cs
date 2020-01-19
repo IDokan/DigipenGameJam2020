@@ -35,6 +35,7 @@ public class Status : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         DontDestroyOnLoad(gameObject);
         currentScene = SceneManager.GetActiveScene();
         SceneName = currentScene.name;
@@ -97,8 +98,25 @@ public class Status : MonoBehaviour
             gameObject.GetComponent<Transform>().position = new Vector3(1.11f, -0.57f, -0.01f);
         }
 
-
-
+        if(Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            fatigue = 99;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            urin = 99;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            hunger = 99;
+        }
+        else if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            fatigue = 0;
+            urin = 0;
+            hunger = 0;
+            intelligence = 0;
+        }
     }
 
     public void EatSignal(int count)
