@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Life_days : MonoBehaviour
 {
     public int day { get; set; } = 1;
     public int week { get; set; } = 12;
-    public int semester { get; set; } = 1;
-    public int year { get; set; } = 1;
+    public int semester { get; set; } = 2;
+    public int year { get; set; } = 2;
 
 
     [SerializeField]
@@ -35,8 +36,8 @@ public class Life_days : MonoBehaviour
     int year_Semester { get; set; } = 3;
     int whole_Year { get; set; } = 5;
 
-    string studentYear = "Beginner";
-    string studentSemester = "Spring";
+    string studentYear = "Sophomore";
+    string studentSemester = "Fall";
  
 
     string[] behaviorTextField;
@@ -67,26 +68,25 @@ public class Life_days : MonoBehaviour
     public void dayCount(int count)
     {
         behavior -= count;
-        GameObject.Find("Player").GetComponent<Status>().fatigue += 2;
+        //GameObject.Find("Player").GetComponent<Status>().fatigue += 2;
 
-        if (GameObject.Find("Player").GetComponent<Status>().fatigue > 100)
-            GameObject.Find("Player").GetComponent<Status>().fatigue = 100;
 
         GameObject.Find("Player").GetComponent<Status>().hunger += 3;
 
-        if (GameObject.Find("Player").GetComponent<Status>().hunger > 100)
-            GameObject.Find("Player").GetComponent<Status>().hunger = 100;
+        if(GameObject.Find("Player").GetComponent<Status>().hunger >= 100)
+        {
+            SceneManager.LoadScene("EndingScene");
+        }
 
         if (behavior == 0)
         {
             day++;
             GameObject.Find("Player").GetComponent<Status>().urin += 6;
+            if (GameObject.Find("Player").GetComponent<Status>().urin >= 100)
+            {
+                SceneManager.LoadScene("EndingScene");
+            }
             behavior = 5;
-            if (GameObject.Find("Player").GetComponent<Status>().urin > 100)
-                GameObject.Find("Player").GetComponent<Status>().urin = 100;
-
-
-
         }
 
         if (day == whole_Day)
@@ -98,13 +98,23 @@ public class Life_days : MonoBehaviour
 
         if (week == whole_Week)
         {
-            semester++;
-            week = 1;
-
-            if(semester == 2)
+            if(GameObject.Find("Player").GetComponent<Status>().intelligence == 100)
             {
-                studentSemester = "Fall";
+                SceneManager.LoadScene("FlipCards");
             }
+            else
+            {
+
+                SceneManager.LoadScene("EndingScene");
+            }
+
+            //semester++;
+            //week = 1;
+
+            //if(semester == 2)
+            //{
+            //    studentSemester = "Fall";
+            //}
 
         }
 

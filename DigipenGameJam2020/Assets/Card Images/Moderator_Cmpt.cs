@@ -102,6 +102,7 @@ public class Moderator_Cmpt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(10.0f, -3.2f, -0.01f);
         givenString = "H_ll_ World";
         answer = "eo";
 
@@ -192,7 +193,7 @@ public class Moderator_Cmpt : MonoBehaviour
         {
             // TODO: End scene, get back to main scene.
             print("Done!");
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("EndingScene");
         }
     }
 

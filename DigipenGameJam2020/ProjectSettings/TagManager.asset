@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Days
+  - Ending
   layers:
   - Default
   - TransparentFX
