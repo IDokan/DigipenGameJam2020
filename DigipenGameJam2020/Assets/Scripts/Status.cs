@@ -96,6 +96,9 @@ public class Status : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = standing;
             gameObject.GetComponent<Transform>().position = new Vector3(1.11f, -0.57f, -0.01f);
         }
+
+
+
     }
 
     public void EatSignal(int count)
